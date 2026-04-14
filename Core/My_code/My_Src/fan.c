@@ -13,6 +13,7 @@ void fan_set_gear(uint8_t gear)
     __HAL_TIM_SET_COMPARE(&htim2,TIM_CHANNEL_1,pwm[gear]);
 }
 
+
 uint8_t fan_get_gear(void) {
     return fan_gear;
 }
