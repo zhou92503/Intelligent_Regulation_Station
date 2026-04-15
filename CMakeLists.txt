@@ -35,7 +35,6 @@ enable_language(C ASM)
 add_executable(${CMAKE_PROJECT_NAME}
         Core/My_code/My_Src/battery.c
         Core/My_code/My_Src/dht11.c
-        Core/My_code/My_Src/fan.c
         Core/My_code/My_Src/key.c
         Core/My_code/My_Src/encoder.c
         Core/My_code/My_Src/oled.c

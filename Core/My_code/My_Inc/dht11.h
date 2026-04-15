@@ -10,7 +10,13 @@
 
 #include "main.h"
 
+extern uint8_t dht11_temp;
+extern uint8_t dht11_humi;
+
+
+void dht11_init(void);
 void dht11_update(void);
+
 uint8_t dht11_get_temp(void);
 uint8_t dht11_get_humi(void);
 
