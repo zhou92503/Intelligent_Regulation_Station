@@ -1,5 +1,7 @@
 #include "dht11.h"
 
+#include "cmsis_os2.h"
+
 static uint8_t temp = 0;
 static uint8_t humi = 0;
 
@@ -25,10 +27,6 @@ void dht11_update(void)
 }
 
 
-
-
-
-
 uint8_t dht11_get_temp(void)
 {
     return dht11_temp;
@@ -37,4 +35,17 @@ uint8_t dht11_get_temp(void)
 uint8_t dht11_get_humi(void)
 {
     return dht11_humi;
+}
+
+
+void Start_dht_Task(void *argument)
+{
+    dht11_init();
+
+    for(;;)
+    {
+        dht11_update();
+
+        osDelay(1000);
+    }
 }

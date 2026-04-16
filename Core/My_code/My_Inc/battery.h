@@ -10,7 +10,7 @@
 float battery_get_voltage(void);
 uint8_t battery_get_percent(void);
 void battery_update(void);
-
+void Start_Battery_Task(void *argument);
 
 
 extern uint8_t battery_percent;

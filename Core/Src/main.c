@@ -56,13 +56,6 @@ const osThreadAttr_t OLED_Task_attributes = {
   .stack_size = 512 * 4,
   .priority = (osPriority_t) osPriorityNormal,
 };
-/* Definitions for FAN_Task */
-osThreadId_t FAN_TaskHandle;
-const osThreadAttr_t FAN_Task_attributes = {
-  .name = "FAN_Task",
-  .stack_size = 256 * 4,
-  .priority = (osPriority_t) osPriorityNormal,
-};
 /* Definitions for air_sensor_Task */
 osThreadId_t air_sensor_TaskHandle;
 const osThreadAttr_t air_sensor_Task_attributes = {
@@ -111,7 +104,6 @@ static void MX_I2C2_Init(void);
 static void MX_TIM2_Init(void);
 static void MX_TIM3_Init(void);
 void Start_OLED_Task(void *argument);
-void Start_FAN_Task(void *argument);
 void Start_air_sensor_Task(void *argument);
 void Start_dht_Task(void *argument);
 void Start_key_Task(void *argument);
@@ -187,9 +179,6 @@ int main(void)
   /* Create the thread(s) */
   /* creation of OLED_Task */
   OLED_TaskHandle = osThreadNew(Start_OLED_Task, NULL, &OLED_Task_attributes);
-
-  /* creation of FAN_Task */
-  FAN_TaskHandle = osThreadNew(Start_FAN_Task, NULL, &FAN_Task_attributes);
 
   /* creation of air_sensor_Task */
   air_sensor_TaskHandle = osThreadNew(Start_air_sensor_Task, NULL, &air_sensor_Task_attributes);
@@ -567,24 +556,6 @@ __weak void Start_OLED_Task(void *argument)
     osDelay(1);
   }
   /* USER CODE END 5 */
-}
-
-/* USER CODE BEGIN Header_Start_FAN_Task */
-/**
-* @brief Function implementing the FAN_Task thread.
-* @param argument: Not used
-* @retval None
-*/
-/* USER CODE END Header_Start_FAN_Task */
-__weak void Start_FAN_Task(void *argument)
-{
-  /* USER CODE BEGIN Start_FAN_Task */
-  /* Infinite loop */
-  for(;;)
-  {
-    osDelay(1);
-  }
-  /* USER CODE END Start_FAN_Task */
 }
 
 /* USER CODE BEGIN Header_Start_air_sensor_Task */

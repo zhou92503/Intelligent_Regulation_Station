@@ -1,13 +1,15 @@
 #include "battery.h"
 
-uint8_t battery_percent =0;
+#include "cmsis_os2.h"
 
+uint8_t battery_percent =0;
 uint8_t is_charging = 0;
 
 void battery_update(void)
 {
 
     HAL_ADC_Start(&hadc1);
+
     if (HAL_ADC_PollForConversion(&hadc1, 100)==HAL_OK);
     {
         uint16_t adc_val = HAL_ADC_GetValue(&hadc1);
@@ -32,4 +34,17 @@ void battery_update(void)
 uint8_t battery_get_percent(void)
 {
     return battery_percent;
+}
+
+
+void Start_Battery_Task(void *argument)
+{
+
+    for(;;)
+    {
+        battery_update();
+
+        osDelay(1000);
+    }
+
 }

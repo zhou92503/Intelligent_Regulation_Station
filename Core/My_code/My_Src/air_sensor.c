@@ -1,4 +1,6 @@
 #include "air_sensor.h"
+
+#include "cmsis_os2.h"
 #include "main.h"
 
 uint16_t tvoc_value =0;
@@ -19,4 +21,18 @@ uint16_t air_sensor_get_tvoc(void)
     return tvoc_value;
 }
 
+
+void Start_air_sensor_Task(void *argument)
+{
+
+    air_sensor_init();
+
+    for(;;)
+    {
+        air_sensor_update();
+
+        osDelay(1000);
+    }
+
+}
 
