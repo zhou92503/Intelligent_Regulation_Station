@@ -38,7 +38,8 @@ add_executable(${CMAKE_PROJECT_NAME}
         Core/My_code/My_Src/key.c
         Core/My_code/My_Src/encoder.c
         Core/My_code/My_Src/oled.c
-        Core/My_code/My_Src/air_sensor.c)
+        Core/My_code/My_Src/air_sensor.c
+        Core/My_code/My_Src/show.c)
 
 # Add STM32CubeMX generated sources
 add_subdirectory(cmake/stm32cubemx)

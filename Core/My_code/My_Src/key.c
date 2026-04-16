@@ -7,11 +7,14 @@ uint8_t oled_page=0;   //0:主界面  1：风扇界面  2：电源界面
 
 void key_scan(void)
 {
+    //KEY1 :PB0  ->切第0页（环境）
+
     if (HAL_GPIO_ReadPin(GPIOA, GPIO_PIN_1) == GPIO_PIN_RESET)
     {
         osDelay(20);
-        if (HAL_GPIO_ReadPin(GPIOA, GPIO_PIN_1) == GPIO_PIN_RESET) {
-          oled_page = 0;
+        if (HAL_GPIO_ReadPin(GPIOA, GPIO_PIN_1) == GPIO_PIN_RESET)
+        {
+            oled_page = 0;
             while (HAL_GPIO_ReadPin(GPIOA, GPIO_PIN_1)==GPIO_PIN_RESET);
         }
     }
@@ -44,7 +47,6 @@ void key_scan(void)
 
 void Start_key_Task(void *argument)
 {
-
     for(;;)
     {
 

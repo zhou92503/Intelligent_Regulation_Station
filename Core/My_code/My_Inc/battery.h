@@ -12,4 +12,9 @@ uint8_t battery_get_percent(void);
 void battery_update(void);
 
 
+
+extern uint8_t battery_percent;
+
+extern uint8_t is_charging;
+
 #endif //INTELLIGENT_REGULATION_STATION_BATTERY_H

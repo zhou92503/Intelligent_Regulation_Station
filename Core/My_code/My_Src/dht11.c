@@ -24,6 +24,8 @@ void dht11_update(void)
     }
 }
 
+
+
 uint8_t dht11_get_temp(void)
 {
     return dht11_temp;

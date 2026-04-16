@@ -9,5 +9,8 @@ void air_sensor_init(void);
 void air_sensor_update(void);
 uint16_t air_sensor_get_tvoc(void);
 
+extern  uint16_t tvoc_value;
+
+
 
 #endif //INTELLIGENT_REGULATION_STATION_AIR_SENSOR_H
