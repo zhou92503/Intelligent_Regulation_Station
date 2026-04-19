@@ -23,7 +23,6 @@ void OLED_I2C_Init(void)
 // 	GPIO_Init(GPIOB, &GPIO_InitStructure);
 //	GPIO_InitStructure.GPIO_Pin = GPIO_Pin_9;
 // 	GPIO_Init(GPIOB, &GPIO_InitStructure);
-
 	OLED_W_SCL(1);
 	OLED_W_SDA(1);
 }
@@ -83,6 +82,8 @@ void OLED_WriteCommand(uint8_t Command)
 	OLED_I2C_SendByte(0x00);		//写命令
 	OLED_I2C_SendByte(Command);
 	OLED_I2C_Stop();
+
+	//HAL_I2C_Mem_Write(&hi2c1, 0x78, 0x00,I2C_MEMADD_SIZE_8BIT,(uint8_t *)&Command, 1, 1000);
 }
 
 /**
@@ -97,6 +98,8 @@ void OLED_WriteData(uint8_t Data)
 	OLED_I2C_SendByte(0x40);		//写数据
 	OLED_I2C_SendByte(Data);
 	OLED_I2C_Stop();
+
+	//HAL_I2C_Mem_Write(&hi2c1, 0x78, 0x40, I2C_MEMADD_SIZE_8BIT, &Data, 1, 100);
 }
 
 /**

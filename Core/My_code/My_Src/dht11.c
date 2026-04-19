@@ -2,8 +2,8 @@
 
 #include "cmsis_os2.h"
 
-static uint8_t temp = 0;
-static uint8_t humi = 0;
+ uint8_t dht11_temp = 0;
+ uint8_t dht11_humi = 0;
 
 #define DHT11_ADDR 0x5C <<1
 
@@ -14,11 +14,16 @@ static void delay_us(uint32_t us)
     while(d--);
 }
 
+void dht11_init() {
+
+
+}
+
 // 读取一个字节
 void dht11_update(void)
 {
      uint8_t buf[4];
-    if (HAL_I2C_Mem_Read(&hi2c1, DHT11_ADDR, 0, 1, buf, 4, 100)==HAL_OK)
+    if (HAL_I2C_Mem_Read(&hi2c2, DHT11_ADDR, 0, 1, buf, 4, 100)==HAL_OK)
     {
 
        dht11_humi = buf[0];
@@ -46,6 +51,6 @@ void Start_dht_Task(void *argument)
     {
         dht11_update();
 
-        osDelay(1000);
+        osDelay(50);
     }
 }

@@ -34,7 +34,7 @@ void Start_encoder_Task(void *argument)
     {
         encoder_scan();
 
-        osDelay(20);
+        osDelay(5);
     }
 
 }

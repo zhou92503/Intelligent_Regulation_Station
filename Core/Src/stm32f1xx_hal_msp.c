@@ -155,34 +155,7 @@ void HAL_ADC_MspDeInit(ADC_HandleTypeDef* hadc)
 void HAL_I2C_MspInit(I2C_HandleTypeDef* hi2c)
 {
   GPIO_InitTypeDef GPIO_InitStruct = {0};
-  if(hi2c->Instance==I2C1)
-  {
-    /* USER CODE BEGIN I2C1_MspInit 0 */
-
-    /* USER CODE END I2C1_MspInit 0 */
-
-    __HAL_RCC_GPIOB_CLK_ENABLE();
-    /**I2C1 GPIO Configuration
-    PB6     ------> I2C1_SCL
-    PB7     ------> I2C1_SDA
-    */
-    GPIO_InitStruct.Pin = GPIO_PIN_6|GPIO_PIN_7;
-    GPIO_InitStruct.Mode = GPIO_MODE_AF_OD;
-    GPIO_InitStruct.Speed = GPIO_SPEED_FREQ_HIGH;
-    HAL_GPIO_Init(GPIOB, &GPIO_InitStruct);
-
-    /* Peripheral clock enable */
-    __HAL_RCC_I2C1_CLK_ENABLE();
-    /* I2C1 interrupt Init */
-    HAL_NVIC_SetPriority(I2C1_EV_IRQn, 5, 0);
-    HAL_NVIC_EnableIRQ(I2C1_EV_IRQn);
-    HAL_NVIC_SetPriority(I2C1_ER_IRQn, 5, 0);
-    HAL_NVIC_EnableIRQ(I2C1_ER_IRQn);
-    /* USER CODE BEGIN I2C1_MspInit 1 */
-
-    /* USER CODE END I2C1_MspInit 1 */
-  }
-  else if(hi2c->Instance==I2C2)
+  if(hi2c->Instance==I2C2)
   {
     /* USER CODE BEGIN I2C2_MspInit 0 */
 
@@ -203,6 +176,7 @@ void HAL_I2C_MspInit(I2C_HandleTypeDef* hi2c)
     /* USER CODE BEGIN I2C2_MspInit 1 */
 
     /* USER CODE END I2C2_MspInit 1 */
+
   }
 
 }
@@ -215,30 +189,7 @@ void HAL_I2C_MspInit(I2C_HandleTypeDef* hi2c)
   */
 void HAL_I2C_MspDeInit(I2C_HandleTypeDef* hi2c)
 {
-  if(hi2c->Instance==I2C1)
-  {
-    /* USER CODE BEGIN I2C1_MspDeInit 0 */
-
-    /* USER CODE END I2C1_MspDeInit 0 */
-    /* Peripheral clock disable */
-    __HAL_RCC_I2C1_CLK_DISABLE();
-
-    /**I2C1 GPIO Configuration
-    PB6     ------> I2C1_SCL
-    PB7     ------> I2C1_SDA
-    */
-    HAL_GPIO_DeInit(GPIOB, GPIO_PIN_6);
-
-    HAL_GPIO_DeInit(GPIOB, GPIO_PIN_7);
-
-    /* I2C1 interrupt DeInit */
-    HAL_NVIC_DisableIRQ(I2C1_EV_IRQn);
-    HAL_NVIC_DisableIRQ(I2C1_ER_IRQn);
-    /* USER CODE BEGIN I2C1_MspDeInit 1 */
-
-    /* USER CODE END I2C1_MspDeInit 1 */
-  }
-  else if(hi2c->Instance==I2C2)
+  if(hi2c->Instance==I2C2)
   {
     /* USER CODE BEGIN I2C2_MspDeInit 0 */
 

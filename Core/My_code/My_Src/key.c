@@ -15,7 +15,7 @@ void key_scan(void)
         if (HAL_GPIO_ReadPin(GPIOA, GPIO_PIN_1) == GPIO_PIN_RESET)
         {
             oled_page = 0;
-            while (HAL_GPIO_ReadPin(GPIOA, GPIO_PIN_1)==GPIO_PIN_RESET);
+     //       while (HAL_GPIO_ReadPin(GPIOA, GPIO_PIN_1)==GPIO_PIN_RESET);
         }
     }
 
@@ -26,7 +26,7 @@ void key_scan(void)
         if(HAL_GPIO_ReadPin(GPIOA, GPIO_PIN_2) == GPIO_PIN_RESET)
         {
             oled_page = 1;
-            while(HAL_GPIO_ReadPin(GPIOA, GPIO_PIN_2) == GPIO_PIN_RESET);
+       //     while(HAL_GPIO_ReadPin(GPIOA, GPIO_PIN_2) == GPIO_PIN_RESET);
         }
     }
 
@@ -37,7 +37,7 @@ void key_scan(void)
         if(HAL_GPIO_ReadPin(GPIOA, GPIO_PIN_3) == GPIO_PIN_RESET)
         {
             oled_page = 2;
-            while(HAL_GPIO_ReadPin(GPIOA, GPIO_PIN_3) == GPIO_PIN_RESET);
+       //     while(HAL_GPIO_ReadPin(GPIOA, GPIO_PIN_3) == GPIO_PIN_RESET);
         }
     }
 }
@@ -51,7 +51,7 @@ void Start_key_Task(void *argument)
     {
 
         key_scan();
-        osDelay(20);
+        osDelay(5);
     }
 
 }

@@ -44,7 +44,7 @@ void Start_Battery_Task(void *argument)
     {
         battery_update();
 
-        osDelay(1000);
+        osDelay(100);
     }
 
 }
