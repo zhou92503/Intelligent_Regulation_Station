@@ -21,7 +21,7 @@ void Start_OLED_Task(void *argument)
                 // ----- 界面 1：环境监测 -----
                 OLED_ShowString(1, 1, "Env: Monitor");      // 标题
                 OLED_ShowString(2, 1, "T: ");
-                OLED_ShowNum(2, 4, dht11_temp, 2);           // 温度
+                OLED_ShowNum(2, 4, dht_temp, 2);           // 温度
                 OLED_ShowChar(2, 6, 'C');
 
                 OLED_ShowString(3, 1, "TVOC: ");

@@ -66,6 +66,8 @@ extern  TIM_HandleTypeDef htim3;
 /* USER CODE END EFP */
 
 /* Private defines -----------------------------------------------------------*/
+#define DHT11_Pin_Pin GPIO_PIN_13
+#define DHT11_Pin_GPIO_Port GPIOB
 
 /* USER CODE BEGIN Private defines */
 

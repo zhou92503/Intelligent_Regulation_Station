@@ -1,25 +1,17 @@
-//
-// Created by zhouzhan on 2026/4/14.
-//
-
-#ifndef INTELLIGENT_REGULATION_STATION_DHT11_H
-#define INTELLIGENT_REGULATION_STATION_DHT11_H
-
 #ifndef __DHT11_H
 #define __DHT11_H
 
 #include "main.h"
 
-extern uint8_t dht11_temp;
-extern uint8_t dht11_humi;
+// 你自己根据实际引脚改这里
+#define DHT11_PORT    GPIOB
+#define DHT11_PIN     GPIO_PIN_13
 
+void DHT11_Init(void);
+uint8_t DHT11_ReadData(uint8_t *temp, uint8_t *humi);
+void Start_dht_Task(void *argument);
 
-void dht11_init(void);
-void dht11_update(void);
-
-uint8_t dht11_get_temp(void);
-uint8_t dht11_get_humi(void);
-
+// 全局变量：温度、湿度
+extern uint8_t dht_temp;
+extern uint8_t dht_humi;
 #endif
-
-#endif //INTELLIGENT_REGULATION_STATION_DHT11_H
