@@ -125,6 +125,8 @@ void DHT11_Init(void)
     osDelay(1000);
 }
 
+
+
 // DHT11 任务
 void Start_dht_Task(void *argument)
 {
