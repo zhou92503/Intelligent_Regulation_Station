@@ -11,7 +11,7 @@ uint16_t air_sensor_get_tvoc(void);
 
 void Start_air_sensor_Task(void *argument);
 
-extern  uint16_t tvoc_value;
+extern  uint16_t tvoc;
 
 
 

@@ -25,7 +25,7 @@ void Start_OLED_Task(void *argument)
                 OLED_ShowChar(2, 6, 'C');
 
                 OLED_ShowString(3, 1, "TVOC: ");
-                OLED_ShowNum(3, 7, tvoc_value, 4);          // 空气质量
+                OLED_ShowNum(3, 7, tvoc, 4);          // 空气质量
                 break;
 
             case 1:

@@ -8,7 +8,9 @@
 #include "main.h"
 
 extern uint8_t fan_target_percent;
-void encoder_scan(void);
+
+void Encoder_Init(void);
+void Encoder_Scan(void);
 void Start_encoder_Task(void *argument);
 
 #endif //INTELLIGENT_REGULATION_STATION_ENCODER_H
