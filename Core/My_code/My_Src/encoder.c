@@ -24,6 +24,8 @@ void Encoder_Init(void)
 
 
 
+
+
 void Encoder_Scan(void)
 {
     // 读取硬件值
