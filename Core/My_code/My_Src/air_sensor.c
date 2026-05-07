@@ -28,13 +28,11 @@ uint16_t AGS02MA_Read(void)
 
 void Start_air_sensor_Task(void *argument)
 {
-
     for(;;)
     {
         tvoc = AGS02MA_Read();
 
         osDelay(50);
     }
-
 }
 
