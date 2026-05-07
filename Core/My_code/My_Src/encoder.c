@@ -12,6 +12,7 @@ uint8_t fan_target_percent = 50;  // 默认 50%
 static int16_t last_cnt = 50;
 int16_t target;
 int16_t diff;
+int16_t now;
 
 void Encoder_Init(void)
 {
@@ -29,7 +30,7 @@ void Encoder_Init(void)
 void Encoder_Scan(void)
 {
     // 读取硬件值
-    int16_t now = (int16_t)__HAL_TIM_GET_COUNTER(&htim3);
+    now = (int16_t)__HAL_TIM_GET_COUNTER(&htim3);
 
     // ==============================================
     // 【核心】只算变化量，不管硬件跳变
